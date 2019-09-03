@@ -79,13 +79,16 @@
 
 
 
+<meta name="description" content="Keep working">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Javinci">
 <meta property="og:url" content="http://javinciii.github.io/archives/2019/09/index.html">
 <meta property="og:site_name" content="Javinci">
+<meta property="og:description" content="Keep working">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javinci">
+<meta name="twitter:description" content="Keep working">
 
 
 
@@ -355,7 +358,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Javinci">
             
               <p class="site-author-name" itemprop="name">Javinci</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <p class="site-description motion-element" itemprop="description">Keep working</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -416,11 +419,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-
-
-  <span class="post-meta-divider">|</span>
 
 
 
@@ -590,6 +589,28 @@
 
 
 
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item=>{
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'nkaN5gUswSrgst01bn8vzT0f-gzGzoHsz',
+        appKey: 'MnkT1kOsBAD5TLyeOmjdjxE7',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        guest_info:guest,
+        pageSize:'10' || 10,
+    });
+  </script>
 
 
 
