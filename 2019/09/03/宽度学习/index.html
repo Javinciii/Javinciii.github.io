@@ -66,7 +66,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="BLS,">
 
 
 
@@ -77,16 +77,20 @@
 
 
 
-<meta name="description" content="Keep working">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Javinci">
-<meta property="og:url" content="http://javinciii.github.io/index.html">
+<meta name="description" content="宽度学习亮点：1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。原理： 1.生成特征节点2.生成增强节点（增加网络中的非线性因素）3.生成网络的输入X4.求伪逆（pseudoinverse）">
+<meta name="keywords" content="BLS">
+<meta property="og:type" content="article">
+<meta property="og:title" content="宽度学习">
+<meta property="og:url" content="http://javinciii.github.io/2019/09/03/宽度学习/index.html">
 <meta property="og:site_name" content="Javinci">
-<meta property="og:description" content="Keep working">
+<meta property="og:description" content="宽度学习亮点：1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。原理： 1.生成特征节点2.生成增强节点（增加网络中的非线性因素）3.生成网络的输入X4.求伪逆（pseudoinverse）">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="en-resource://database/1510:1">
+<meta property="og:updated_time" content="2019-09-03T02:50:43.771Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Javinci">
-<meta name="twitter:description" content="Keep working">
+<meta name="twitter:title" content="宽度学习">
+<meta name="twitter:description" content="宽度学习亮点：1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。原理： 1.生成特征节点2.生成增强节点（增加网络中的非线性因素）3.生成网络的输入X4.求伪逆（pseudoinverse）">
+<meta name="twitter:image" content="en-resource://database/1510:1">
 
 
 
@@ -116,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://javinciii.github.io/">
+  <link rel="canonical" href="http://javinciii.github.io/2019/09/03/宽度学习/">
 
 
 
 
 
-  <title>Javinci</title>
+  <title>宽度学习 | Javinci</title>
   
 
 
@@ -141,8 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -245,9 +248,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -277,9 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/03/宽度学习/" itemprop="url">宽度学习</a></h1>
+          <h1 class="post-title" itemprop="name headline">宽度学习</h1>
         
 
         <div class="post-meta">
@@ -327,11 +328,26 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/03/宽度学习/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2019/09/03/宽度学习/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
           
 
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o">本文总阅读量</i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>次
+            </span>
           
 
           
@@ -351,12 +367,8 @@
       
 
       
-        
-          
-            <h1 id="宽度学习"><a href="#宽度学习" class="headerlink" title="宽度学习"></a>宽度学习</h1><h3 id="亮点："><a href="#亮点：" class="headerlink" title="亮点："></a>亮点：</h3><h5 id="1-相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。"><a href="#1-相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。" class="headerlink" title="1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。"></a>1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。</h5><h5 id="2-增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。"><a href="#2-增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。" class="headerlink" title="2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。"></a>2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。</h5><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p><img src="en-resource://database/1510:1" alt="173a24e6b93a0f4517fb102b8ce077f4.jpeg"></p>
+        <h1 id="宽度学习"><a href="#宽度学习" class="headerlink" title="宽度学习"></a>宽度学习</h1><h3 id="亮点："><a href="#亮点：" class="headerlink" title="亮点："></a>亮点：</h3><h5 id="1-相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。"><a href="#1-相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。" class="headerlink" title="1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。"></a>1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。</h5><h5 id="2-增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。"><a href="#2-增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。" class="headerlink" title="2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。"></a>2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。</h5><h3 id="原理："><a href="#原理：" class="headerlink" title="原理："></a>原理：</h3><p><img src="en-resource://database/1510:1" alt="173a24e6b93a0f4517fb102b8ce077f4.jpeg"></p>
 <h5 id="1-生成特征节点"><a href="#1-生成特征节点" class="headerlink" title="1.生成特征节点"></a>1.生成特征节点</h5><h5 id="2-生成增强节点（增加网络中的非线性因素）"><a href="#2-生成增强节点（增加网络中的非线性因素）" class="headerlink" title="2.生成增强节点（增加网络中的非线性因素）"></a>2.生成增强节点（增加网络中的非线性因素）</h5><h5 id="3-生成网络的输入X"><a href="#3-生成网络的输入X" class="headerlink" title="3.生成网络的输入X"></a>3.生成网络的输入X</h5><h5 id="4-求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW-Y，只需求得W-X-1-Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。"><a href="#4-求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW-Y，只需求得W-X-1-Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。" class="headerlink" title="4.求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW=Y，只需求得W=X^(-1)Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。"></a>4.求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW=Y，只需求得W=X^(-1)Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。</h5>
-          
-        
       
     </div>
     
@@ -371,14 +383,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/BLS/" rel="tag"># BLS</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -388,10 +406,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -399,6 +418,17 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      
+        <div id="gitment-container"></div>
+      
+    </div>
+
+  
+
+
 
         </div>
         
@@ -419,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -482,6 +521,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#宽度学习"><span class="nav-number">1.</span> <span class="nav-text">宽度学习</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#亮点："><span class="nav-number">1.0.1.</span> <span class="nav-text">亮点：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。"><span class="nav-number">1.0.1.0.1.</span> <span class="nav-text">1.相对深度结构，宽度结构没有多层链接，不需要利用梯度下降更新权值，参数量也小得多，所以计算速度大大优于深度学习。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。"><span class="nav-number">1.0.1.0.2.</span> <span class="nav-text">2.增量学习，论文提供了三种增量学习算法，包括增强节点增量，特征节点增量和输入数据增量。在更新伪逆时只需要计算新加入的节点的伪逆，就可以更新模型。</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原理："><span class="nav-number">1.0.2.</span> <span class="nav-text">原理：</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-生成特征节点"><span class="nav-number">1.0.2.0.1.</span> <span class="nav-text">1.生成特征节点</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-生成增强节点（增加网络中的非线性因素）"><span class="nav-number">1.0.2.0.2.</span> <span class="nav-text">2.生成增强节点（增加网络中的非线性因素）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-生成网络的输入X"><span class="nav-number">1.0.2.0.3.</span> <span class="nav-text">3.生成网络的输入X</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW-Y，只需求得W-X-1-Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。"><span class="nav-number">1.0.2.0.4.</span> <span class="nav-text">4.求伪逆（pseudoinverse）：神经网络的目的是求输入到输出的映射，对于本文来说，步骤3求得输入X，带标签的输出为Y，对于XW=Y，只需求得W=X^(-1)Y即可。但根据实际情况，X求不出或不存在逆矩阵，所以需要求X的伪逆。</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -638,6 +693,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -684,6 +743,30 @@
 
     
 
+    
+      <script type="text/javascript">
+      function renderGitment(){
+        var gitment = new Gitmint({
+            id: window.location.pathname, 
+            owner: 'Javinciii',
+            repo: 'Javinciii.github.io',
+            
+            lang: "" || navigator.language || navigator.systemLanguage || navigator.userLanguage,
+            
+            oauth: {
+            
+            
+                client_secret: 'f4da0b9a2089fdb38a440cd38e4178393029d69b',
+            
+                client_id: '20d535c22c79f60828e5'
+            }});
+        gitment.render('gitment-container');
+      }
+
+      
+      renderGitment();
+      
+      </script>
     
 
 
