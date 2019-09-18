@@ -260,148 +260,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://javinciii.github.io/2019/09/11/Real-world-Anomaly-Detection-in-Surveillance-Videos/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Javinci">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Javinci">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/09/11/Real-world-Anomaly-Detection-in-Surveillance-Videos/" itemprop="url">Real-world Anomaly Detection in Surveillance Videos</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-11T17:57:24+08:00">
-                2019-09-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/paper/" itemprop="url" rel="index">
-                    <span itemprop="name">paper</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Real-world-Anomaly-Detection-in-Surveillance-Videos"><a href="#Real-world-Anomaly-Detection-in-Surveillance-Videos" class="headerlink" title="Real-world Anomaly Detection in Surveillance Videos"></a>Real-world Anomaly Detection in Surveillance Videos</h1><p>由于对整个领域缺乏系统的认识，目前只能根据参考文献零散的看一些论文，但也不能因噎废食，每天还是要保持一定的阅读量，毕竟系统的知识结构也不是天上掉下来的，那么就从这篇开始吧。（真是太久不写东西了，几十个字写的七零八碎没有逻辑），</p>
-<h3 id="Motivation"><a href="#Motivation" class="headerlink" title="Motivation"></a>Motivation</h3><h4 id="1-传统的机器学习方法，如提取车祸的特征训练模型，只能识别车祸的情况，泛化性太差，无法识别其他异常情况。"><a href="#1-传统的机器学习方法，如提取车祸的特征训练模型，只能识别车祸的情况，泛化性太差，无法识别其他异常情况。" class="headerlink" title="1.传统的机器学习方法，如提取车祸的特征训练模型，只能识别车祸的情况，泛化性太差，无法识别其他异常情况。"></a>1.传统的机器学习方法，如提取车祸的特征训练模型，只能识别车祸的情况，泛化性太差，无法识别其他异常情况。</h4><h4 id="2-稀疏编码的方式。这种方法用正常事件的视频建立一个正常事件字典，那么不能被该字典准确重构的就是异常事件。但是由于监控摄像头在一天内的不同时间捕获的环境背景差别太大，如早上散步和晚上散步，这种方法的误警率很高。（这是论文作者的观点，我还没看稀疏编码的文章）"><a href="#2-稀疏编码的方式。这种方法用正常事件的视频建立一个正常事件字典，那么不能被该字典准确重构的就是异常事件。但是由于监控摄像头在一天内的不同时间捕获的环境背景差别太大，如早上散步和晚上散步，这种方法的误警率很高。（这是论文作者的观点，我还没看稀疏编码的文章）" class="headerlink" title="2.稀疏编码的方式。这种方法用正常事件的视频建立一个正常事件字典，那么不能被该字典准确重构的就是异常事件。但是由于监控摄像头在一天内的不同时间捕获的环境背景差别太大，如早上散步和晚上散步，这种方法的误警率很高。（这是论文作者的观点，我还没看稀疏编码的文章）"></a>2.稀疏编码的方式。这种方法用正常事件的视频建立一个正常事件字典，那么不能被该字典准确重构的就是异常事件。但是由于监控摄像头在一天内的不同时间捕获的环境背景差别太大，如早上散步和晚上散步，这种方法的误警率很高。（这是论文作者的观点，我还没看稀疏编码的文章）</h4><h4 id="3-目前的大部分方法都基于这样一个假设，即偏离已学习的正常模式的模式就是异常情况。这个假设本质上来说没有什么问题，但是从实际情况考虑，没办法定义一种正常事件能把所有正常情况都考虑在内。"><a href="#3-目前的大部分方法都基于这样一个假设，即偏离已学习的正常模式的模式就是异常情况。这个假设本质上来说没有什么问题，但是从实际情况考虑，没办法定义一种正常事件能把所有正常情况都考虑在内。" class="headerlink" title="3.目前的大部分方法都基于这样一个假设，即偏离已学习的正常模式的模式就是异常情况。这个假设本质上来说没有什么问题，但是从实际情况考虑，没办法定义一种正常事件能把所有正常情况都考虑在内。"></a>3.目前的大部分方法都基于这样一个假设，即偏离已学习的正常模式的模式就是异常情况。这个假设本质上来说没有什么问题，但是从实际情况考虑，没办法定义一种正常事件能把所有正常情况都考虑在内。</h4><h4 id="4-视频异常检测的共性问题，异常行为和正常行为的边界不好界定，另外同一种行为在不同的场景下可能会有不同的判定，比如在人行道上散步和在机动车道上散步。"><a href="#4-视频异常检测的共性问题，异常行为和正常行为的边界不好界定，另外同一种行为在不同的场景下可能会有不同的判定，比如在人行道上散步和在机动车道上散步。" class="headerlink" title="4.视频异常检测的共性问题，异常行为和正常行为的边界不好界定，另外同一种行为在不同的场景下可能会有不同的判定，比如在人行道上散步和在机动车道上散步。"></a>4.视频异常检测的共性问题，异常行为和正常行为的边界不好界定，另外同一种行为在不同的场景下可能会有不同的判定，比如在人行道上散步和在机动车道上散步。</h4><h3 id="Contributions"><a href="#Contributions" class="headerlink" title="Contributions"></a>Contributions</h3><h4 id="1-提出了一种基于MIL-Multiple-Instance-Learning-的弱标签异常检测方法，把视频片段当作bag，对bag打标签，视频帧当作instance，不打标签。这样做的好处是不用费时费力的标记每一张图片。"><a href="#1-提出了一种基于MIL-Multiple-Instance-Learning-的弱标签异常检测方法，把视频片段当作bag，对bag打标签，视频帧当作instance，不打标签。这样做的好处是不用费时费力的标记每一张图片。" class="headerlink" title="1.提出了一种基于MIL(Multiple Instance Learning)的弱标签异常检测方法，把视频片段当作bag，对bag打标签，视频帧当作instance，不打标签。这样做的好处是不用费时费力的标记每一张图片。"></a>1.提出了一种基于MIL(Multiple Instance Learning)的弱标签异常检测方法，把视频片段当作bag，对bag打标签，视频帧当作instance，不打标签。这样做的好处是不用费时费力的标记每一张图片。</h4><h4 id="2-提出了一个关于稀疏性和时间平滑约束的loss-function"><a href="#2-提出了一个关于稀疏性和时间平滑约束的loss-function" class="headerlink" title="2.提出了一个关于稀疏性和时间平滑约束的loss function"></a>2.提出了一个关于稀疏性和时间平滑约束的loss function</h4><h4 id="3-发了一个很叼的数据集，一共128个小时，包含13种不同的个异常情况。（真是有数据就能发好文章）"><a href="#3-发了一个很叼的数据集，一共128个小时，包含13种不同的个异常情况。（真是有数据就能发好文章）" class="headerlink" title="3.发了一个很叼的数据集，一共128个小时，包含13种不同的个异常情况。（真是有数据就能发好文章）"></a>3.发了一个很叼的数据集，一共128个小时，包含13种不同的个异常情况。（真是有数据就能发好文章）</h4><h4 id="4-写了一些狗屎，基本上就是把文章翻译了一下，还没加入自己的理解，不过我要吃饭去了，呵呵。"><a href="#4-写了一些狗屎，基本上就是把文章翻译了一下，还没加入自己的理解，不过我要吃饭去了，呵呵。" class="headerlink" title="4.写了一些狗屎，基本上就是把文章翻译了一下，还没加入自己的理解，不过我要吃饭去了，呵呵。"></a>4.写了一些狗屎，基本上就是把文章翻译了一下，还没加入自己的理解，不过我要吃饭去了，呵呵。</h4>
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://javinciii.github.io/2019/09/03/宽度学习/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -579,7 +437,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -601,7 +459,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">1</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
