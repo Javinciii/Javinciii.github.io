@@ -77,18 +77,18 @@
 
 
 
-<meta name="description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass python的赋值，copy()与deepcopy()先看这样一个例子 12345a = [1,2,3,4]b = ac = bb = [5,6,7,8]print(c)  输出的结果应该是[1,2,3,4]这是因为在b = a的时候并没有新建一个对象把a复制进去，pyth">
+<meta name="description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass">
 <meta name="keywords" content="AUC,python">
 <meta property="og:type" content="article">
 <meta property="og:title" content="AUC计算与python中的copy">
 <meta property="og:url" content="http://javinciii.github.io/2019/09/23/AUC计算与python中的copy/index.html">
 <meta property="og:site_name" content="Javinci">
-<meta property="og:description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass python的赋值，copy()与deepcopy()先看这样一个例子 12345a = [1,2,3,4]b = ac = bb = [5,6,7,8]print(c)  输出的结果应该是[1,2,3,4]这是因为在b = a的时候并没有新建一个对象把a复制进去，pyth">
+<meta property="og:description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-23T05:19:02.912Z">
+<meta property="og:updated_time" content="2019-09-23T08:44:38.203Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AUC计算与python中的copy">
-<meta name="twitter:description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass python的赋值，copy()与deepcopy()先看这样一个例子 12345a = [1,2,3,4]b = ac = bb = [5,6,7,8]print(c)  输出的结果应该是[1,2,3,4]这是因为在b = a的时候并没有新建一个对象把a复制进去，pyth">
+<meta name="twitter:description" content="这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。 ROC与AUCpass">
 
 
 
@@ -367,6 +367,7 @@
       
         <p>这两天实验的过程中发现了一些问题，主要是AUC的相关知识和python的一些语法特性，在此做个记录。</p>
 <h1 id="ROC与AUC"><a href="#ROC与AUC" class="headerlink" title="ROC与AUC"></a>ROC与AUC</h1><p>pass</p>
+<a id="more"></a>
 <h1 id="python的赋值，copy-与deepcopy"><a href="#python的赋值，copy-与deepcopy" class="headerlink" title="python的赋值，copy()与deepcopy()"></a>python的赋值，copy()与deepcopy()</h1><p>先看这样一个例子</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = [1,2,3,4]</span><br><span class="line">b = a</span><br><span class="line">c = b</span><br><span class="line">b = [5,6,7,8]</span><br><span class="line">print(c)</span><br></pre></td></tr></table></figure>
 
