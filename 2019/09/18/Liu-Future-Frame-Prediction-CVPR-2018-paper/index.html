@@ -85,10 +85,12 @@
 <meta property="og:site_name" content="Javinci">
 <meta property="og:description" content="上一篇文章中提到了目前视频异常检测的几个难点，这里再复述一下：1.正向样本，即异常样本相对太少。2.异常的种类太多，无法提取可靠的特征覆盖所有异常情况。3.正常与异常的界限模糊，难以界定。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-19T06:12:22.779Z">
+<meta property="og:image" content="http://javinciii.github.io/.io//structure.JPG">
+<meta property="og:updated_time" content="2019-09-24T13:41:11.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Liu_Future_Frame_Prediction_CVPR_2018_paper">
 <meta name="twitter:description" content="上一篇文章中提到了目前视频异常检测的几个难点，这里再复述一下：1.正向样本，即异常样本相对太少。2.异常的种类太多，无法提取可靠的特征覆盖所有异常情况。3.正常与异常的界限模糊，难以界定。">
+<meta name="twitter:image" content="http://javinciii.github.io/.io//structure.JPG">
 
 
 
@@ -368,7 +370,17 @@
         <p>上一篇文章中提到了目前视频异常检测的几个难点，这里再复述一下：1.正向样本，即异常样本相对太少。2.异常的种类太多，无法提取可靠的特征覆盖所有异常情况。3.正常与异常的界限模糊，难以界定。</p>
 <a id="more"></a>
 
-<p>基于以上几个问题，目前主流的方法是Autoencoder。思路是这样的，用负向样本训练一个Autoencoder，将测试数据送入Autoencoder进行重构，重构结果与真实值比较，误差大于阈值的即为异常。解释起来也很简单，一个人从小到大只见过猫，如果让他观察一只猫，他应该能在纸上把这只猫很好的复现出来，但如果让他观察一只狗并且复现，那他画出来的狗肯定会带有强烈的猫的色彩，与真实的狗会有较大的差距。<br>相关的工作很多，但是基本都是在loss function上的修修补补，包括使用GAN做自编码器，本质上来说都是一样的，只是生成的效果更好了。<br>所以我看到这篇论文的时候惊为天人，根据Introduction，论文从异常的定义入手，认为从异常就是与预期不符的事件，如果能根据连续的几帧正常图像预测出下一帧图像，预测出的这帧肯定是正常的，这时与真实图像对比，如果差距很大，那么真实情况就是异常。<br>那么重点就是如何生成高质量的预测帧，这也是论文题目的由来。<br>有点困，看会英语回宿舍了，明天再写，格式也要重排。</p>
+<p>基于以上几个问题，目前主流的方法是Autoencoder。思路是这样的，用负向样本训练一个Autoencoder，将测试数据送入Autoencoder进行重构，重构结果与真实值比较，误差大于阈值的即为异常。解释起来也很简单，一个人从小到大只见过猫，如果让他观察一只猫，他应该能在纸上把这只猫很好的复现出来，但如果让他观察一只狗并且复现，那他画出来的狗肯定会带有强烈的猫的色彩，与真实的狗会有较大的差距。<br>相关的工作很多，但是基本都是在loss function上的修修补补，包括使用GAN做自编码器，本质上来说都是一样的，只是生成的效果更好了。<br>所以我看到这篇论文的时候惊为天人，根据Introduction，论文从异常的定义入手，认为从异常就是与预期不符的事件，如果能根据连续的几帧正常图像预测出下一帧图像，预测出的这帧肯定是正常的，这时与真实图像对比，如果差距很大，那么真实情况就是异常。<br>那么重点就是如何生成高质量的预测帧，这也是论文题目的由来。<br>然而随着对论文的深入了解，发现他的核心功能实现与Introduction说的不太一样。设想这样的一个情景，在测试的时候，输入连续的3帧异常图像，根据Introduction，预测出的应该是一帧异常图像，这张图与GroundTruth的psnr应该很大，也就是说判断不出来异常了。但是！观察测试时生成的PSNR序列可以发现所有异常，包括连续的几十帧异常都检测出来了，这就说明核心功能不是通过预测实现的，本质上还是重构图片那一套。不过这篇文章的效果还不错，为了利用视频的时序特征使用了光流loss，创新点也是有的。</p>
+<p>#Sturcture<br><img src="/.io//structure.JPG" alt="structure"><br>本文选了GAN作为生成网络，其中Generator有两个constrains，分别是apperance constrain（intensity loss and gradient loss）和motion constrain（optical flow loss）。<br>intensity loss用的是非常常规的l2 distance，用来约束像素点。<br>$$L_{int}\left ( \hat{I},I \right )= \left | \hat{I}-I \right |_{2}^{2}$$<br>grandient loss没看懂，是为了锐化预测图像？$i,j$分别代表什么？</p>
+<blockquote>
+<p>Another strategy to sharpen the image prediction is to directly penalize the differences of image gradient predictions in the generative loss function. We define a new loss function, the Gradient Difference Loss (GDL), that can be combined with a $l_{p}$ and/or adversarial loss function.<br>M. Mathieu, C. Couprie, and Y. LeCun. Deep multiscale video prediction beyond meansquare error. CoRR,abs/1511.05440, 2015</p>
+</blockquote>
+<p>$$L_{gd} \left( \hat{I},I \right)=\sum_{i,j}\left | \left | \hat{I}<em>{i,j}-\hat{I}</em>{i-1,j} \right |- \left | I_{i,j}-I_{i-1,j} \right |\right |<em>{1}+\left | \left | \hat{I}</em>{i,j}-\hat{I}<em>{i,j-1} \right |- \left | I</em>{i,j}-I_{i,j-1} \right |\right |<em>{1}$$<br>作者认为一点微小的像素改变有可能会对光流造成很大的影响，而之前基于生成模型的异常检测都没考虑到这一点，所以加入了光流损失。<br>$$L</em>{op}(\hat{I}<em>{t+1},I</em>{t+1},I_{t})=\left | f(\hat{I}<em>{t+1},I</em>{t})-f(I_{t+1},I_{t}) \right |_{1}$$<br>论文里用了基于CNN的光流网络，出自这篇文章。</p>
+<blockquote>
+<p>A. Dosovitskiy, P. Fischer, E. Ilg, P. Hausser, C. Hazirbas,V. Golkov,P.van der Smagt, D. Cremers, and T. Brox.Flownet: Learning optical flow with convolutional networks.In 2015 IEEE International Conference on Computer Vision,ICCV 2015, Santiago, Chile, December 7-13, 2015, pages 2758–2766, 2015.</p>
+</blockquote>
+<p>除此之外生成器还需要一个对抗loss，求$D(\hat{I})$和$1$的均方差，即尽可能的让判别器认为生成器生成的图片为真。<br>$$L_{adv}^{G}(\hat{I})=\sum_{i,j}\frac{1}{2}L_{MSE}(D(\hat{I})<em>{i,j},1)$$<br>最终生成器的目标函数是<br>$$L</em>{G}=\lambda <em>{int}L</em>{int}(\hat{I}<em>{t+1},I</em>{t+1})+\lambda_{gd}L_{gd}(\hat{I}<em>{t+1},I</em>{t+1})+\lambda <em>{op}L</em>{iop}(\hat{I}<em>{t+1},I</em>{t+1},I_{t})+\lambda_{adv}L_{adv}^{G}(\hat{I}<em>{t+1})$$<br>判别器只有一个loss，所以最终判别器的目标函数是<br>$$L</em>{D}=L_{adv}^{D}(\hat{I}<em>{t+1},I</em>{t+1})=\sum_{i,j}\frac{1}{2}L_{MSE}(D(I)<em>{i,j},1)+\sum</em>{i,j}\frac{1}{2}L_{MSE}(D(\hat{I})_{i,j},0)$$<br>这个loss的意思是让判别器把GT认为是真，生成图片是假。</p>
+<p>整个网络就介绍完了，最终的效果还不错，在正常行为模式比较单一的场景，比如人行道数据集ped2上AUC能达到94%，不过我观察论文用的标签都是在异常发生四五帧后（也正是模型能较好识别异常时）才开始标注，这样算出来的AUC是不是有点虚高呢？<br>目前还没有看到能在复杂场景下识别异常行为的工作出现，期待大佬们能带来更给力的方法。</p>
 
       
     </div>
