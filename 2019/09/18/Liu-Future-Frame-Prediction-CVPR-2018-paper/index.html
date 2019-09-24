@@ -86,7 +86,7 @@
 <meta property="og:description" content="上一篇文章中提到了目前视频异常检测的几个难点，这里再复述一下：1.正向样本，即异常样本相对太少。2.异常的种类太多，无法提取可靠的特征覆盖所有异常情况。3.正常与异常的界限模糊，难以界定。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://javinciii.github.io/.io//structure.JPG">
-<meta property="og:updated_time" content="2019-09-24T13:41:11.290Z">
+<meta property="og:updated_time" content="2019-09-24T14:14:18.095Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Liu_Future_Frame_Prediction_CVPR_2018_paper">
 <meta name="twitter:description" content="上一篇文章中提到了目前视频异常检测的几个难点，这里再复述一下：1.正向样本，即异常样本相对太少。2.异常的种类太多，无法提取可靠的特征覆盖所有异常情况。3.正常与异常的界限模糊，难以界定。">
@@ -375,7 +375,7 @@
 <blockquote>
 <p>Another strategy to sharpen the image prediction is to directly penalize the differences of image gradient predictions in the generative loss function. We define a new loss function, the Gradient Difference Loss (GDL), that can be combined with a $l_{p}$ and/or adversarial loss function.<br>M. Mathieu, C. Couprie, and Y. LeCun. Deep multiscale video prediction beyond meansquare error. CoRR,abs/1511.05440, 2015</p>
 </blockquote>
-<p>$$L_{gd} \left( \hat{I},I \right)=\sum_{i,j}\left | \left | \hat{I}<em>{i,j}-\hat{I}</em>{i-1,j} \right |- \left | I_{i,j}-I_{i-1,j} \right |\right |<em>{1}+\left | \left | \hat{I}</em>{i,j}-\hat{I}<em>{i,j-1} \right |- \left | I</em>{i,j}-I_{i,j-1} \right |\right |<em>{1}$$<br>作者认为一点微小的像素改变有可能会对光流造成很大的影响，而之前基于生成模型的异常检测都没考虑到这一点，所以加入了光流损失。<br>$$L</em>{op}(\hat{I}<em>{t+1},I</em>{t+1},I_{t})=\left | f(\hat{I}<em>{t+1},I</em>{t})-f(I_{t+1},I_{t}) \right |_{1}$$<br>论文里用了基于CNN的光流网络，出自这篇文章。</p>
+<p>$$L_{gd} \left( \hat{I},I \right)=\sum_{i,j}\left | \left | \hat{I}<em>{i,j}-\hat{I}\</em>{i-1,j} \right |- \left | I_{i,j}-I_{i-1,j} \right |\right |<em>{1}+\left | \left | \hat{I}\</em>{i,j}-\hat{I}_{i,j-1} \right |- \left | I_{i,j}-I_{i,j-1} \right |\right |<em>{1}$$<br>作者认为一点微小的像素改变有可能会对光流造成很大的影响，而之前基于生成模型的异常检测都没考虑到这一点，所以加入了光流损失。<br>$$L</em>{op}(\hat{I}<em>{t+1},I</em>{t+1},I_{t})=\left | f(\hat{I}<em>{t+1},I</em>{t})-f(I_{t+1},I_{t}) \right |_{1}$$<br>论文里用了基于CNN的光流网络，出自这篇文章。</p>
 <blockquote>
 <p>A. Dosovitskiy, P. Fischer, E. Ilg, P. Hausser, C. Hazirbas,V. Golkov,P.van der Smagt, D. Cremers, and T. Brox.Flownet: Learning optical flow with convolutional networks.In 2015 IEEE International Conference on Computer Vision,ICCV 2015, Santiago, Chile, December 7-13, 2015, pages 2758–2766, 2015.</p>
 </blockquote>
